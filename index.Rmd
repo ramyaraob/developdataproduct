@@ -1,0 +1,44 @@
+---
+title       : Course Project Developing Data Products
+subtitle    : Predicting Iris family
+author      : Ramya Rao
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Iris Flower Family Predictor
+
+The application consists of a left panel with four sliders, for petal length width and sepal length and width. 
+
+The right panel displays the output of the prediction for the current user inputs.
+
+---
+## Operation
+
+As the user modifies the inputs by sliding the slider, each slider input is converted into measurements in centimeters and used to predict the family.
+
+The predictor is developed using Random trees and the training data is the 'iris' data set available in the r data sets, which represents Edgar Anderson's Iris Data.
+
+The predictor will calculate and predict the family the considered flower would belong to.
+
+---
+
+## Edgar Anderson's Iris Data
+
+The prediction is based on the data provided in the Edgar Anderson's Iris Data.
+
+This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica
+
+Further details can be obtained from the documentation of iris data set.
+
+----
+
+## Thank you
+
+
+
