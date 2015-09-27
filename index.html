@@ -13,8 +13,7 @@
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
-
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
@@ -43,38 +42,18 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Iris Flower Family Predictor</h2>
+    <h2>Iris Flower Family Predictor operation</h2>
   </hgroup>
   <article data-timings="">
     <p>The application consists of a left panel with four sliders, for petal length width and sepal length and width. </p>
 
 <p>The right panel displays the output of the prediction for the current user inputs.</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-2" style="background:;">
-  <hgroup>
-    <h2>Operation</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>As the user modifies the inputs by sliding the slider, each slider input is converted into measurements in centimeters and used to predict the family.</p>
+<p>As the user modifies the inputs by sliding the slider, each slider input is converted into measurements in centimeters and used to predict the family.</p>
 
 <p>The predictor is developed using Random trees and the training data is the &#39;iris&#39; data set available in the r data sets, which represents Edgar Anderson&#39;s Iris Data.</p>
 
-<p>The predictor will calculate and predict the family the considered flower would belong to.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-3" style="background:;">
-  <hgroup>
-    <h2>Edgar Anderson&#39;s Iris Data</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>The prediction is based on the data provided in the Edgar Anderson&#39;s Iris Data.</p>
+<p>The prediction is based on the data provided in the Edgar Anderson&#39;s Iris Data.</p>
 
 <p>This famous (Fisher&#39;s or Anderson&#39;s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica</p>
 
@@ -84,9 +63,75 @@
   <!-- Presenter Notes -->
 </slide>
 
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Iris Family</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The predictor will calculate and predict the family the considered flower would belong to.
+Iris is a genus of 260-300[1][2] species of flowering plants with showy flowers. It takes its name from the Greek word for a rainbow, which is also the name for the Greek goddess of the rainbow, Iris.
+The Iris genera is subclassified based on the sepal and petal dimensions. To calculate this data the predictor application can be used.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Operation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Below is the operation of the predictor</p>
+
+<pre><code class="r">tempTrain &lt;- createDataPartition(y=iris$Species, p=0.7, list=FALSE)
+
+  forTraining &lt;- iris[tempTrain,] 
+  forTesting &lt;- iris[-tempTrain,]
+
+  require(randomForest)
+  set.seed(12345)
+
+  rfTraining=randomForest(Species~.,data=forTraining,ntree=100, importance=TRUE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
 <slide class="" id="slide-4" style="background:;">
   <article data-timings="">
-    <p>Thank you</p>
+    <p>The prediction model analysis</p>
+
+<pre><code class="r">rfTraining
+</code></pre>
+
+<pre><code>## 
+## Call:
+##  randomForest(formula = Species ~ ., data = forTraining, ntree = 100,      importance = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 100
+## No. of variables tried at each split: 2
+## 
+##         OOB estimate of  error rate: 6.67%
+## Confusion matrix:
+##            setosa versicolor virginica class.error
+## setosa         35          0         0  0.00000000
+## versicolor      0         33         2  0.05714286
+## virginica       0          5        30  0.14285714
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Thank you</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The application is available at <a href="https://ramyaraob.shinyapps.io/dataproduct">https://ramyaraob.shinyapps.io/dataproduct</a></p>
+
+<p>The related code and other documentation can be found at <a href="https://github.com/ramyaraob/developdataproduct">https://github.com/ramyaraob/developdataproduct</a></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -98,19 +143,19 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Iris Flower Family Predictor'>
+        data-slide=1 title='Iris Flower Family Predictor operation'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Operation'>
+        data-slide=2 title='Iris Family'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Edgar Anderson&#39;s Iris Data'>
+        data-slide=3 title='Operation'>
          3
       </a>
     </li>
@@ -118,6 +163,12 @@
       <a href="#" target="_self" rel='tooltip' 
         data-slide=4 title='NA'>
          4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Thank you'>
+         5
       </a>
     </li>
   </ul>

@@ -39,8 +39,8 @@ The Iris genera is subclassified based on the sepal and petal dimensions. To cal
 
 ## Operation
 Below is the operation of the predictor
-```{r}
 
+```r
 tempTrain <- createDataPartition(y=iris$Species, p=0.7, list=FALSE)
   
   forTraining <- iris[tempTrain,] 
@@ -50,15 +50,30 @@ tempTrain <- createDataPartition(y=iris$Species, p=0.7, list=FALSE)
   set.seed(12345)
   
   rfTraining=randomForest(Species~.,data=forTraining,ntree=100, importance=TRUE)
-
 ```
 
 ---
 The prediction model analysis
 
-```{r}
-rfTraining
 
+```r
+rfTraining
+```
+
+```
+## 
+## Call:
+##  randomForest(formula = Species ~ ., data = forTraining, ntree = 100,      importance = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 100
+## No. of variables tried at each split: 2
+## 
+##         OOB estimate of  error rate: 6.67%
+## Confusion matrix:
+##            setosa versicolor virginica class.error
+## setosa         35          0         0  0.00000000
+## versicolor      0         33         2  0.05714286
+## virginica       0          5        30  0.14285714
 ```
 
 ----
